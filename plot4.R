@@ -11,7 +11,7 @@ power <- mutate(power, DateTimeSeconds = unclass(as.POSIXct(DateTimeObject)))
 min <- min(power$DateTimeSeconds)
 max <- max(power$DateTimeSeconds)
 fri <- min +  ((max - min) / 2)
-par(mfrow = c(2,2), oma = c(2,0,0,0), mar = c(2,4,2,4))
+par(mfrow = c(2,2), oma = c(2,0,0,0), mar = c(4,4,4,2), bg = "transparent")
 par(xaxt = "n")
 plot(power$DateTimeSeconds, y = power$Global_active_power, type = "l", pch = 20, xlim = c(min, max), ylab = "Global Active Power", xlab = "")
 par(xaxt = "l")
@@ -28,8 +28,8 @@ plot(power$DateTimeSeconds, y = power$Sub_metering_1, type = "l", pch = 20, xlim
 lines(power$DateTimeSeconds, y = power$Sub_metering_2, col = "red")
 lines(power$DateTimeSeconds, y = power$Sub_metering_3, col = "blue")
 
-width = strwidth("Sub_metered_1") * 2
-legend("topright",box.lwd = 0, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, text.width = width)
+width = strwidth("Sub_metered_1") * 3.5
+legend("topright",box.lwd = 0, y.intersp = 2, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, text.width = width)
 par(xaxt = "l")
 axis(1, labels = c("Thu", "Fri", "Sat"), at = c(min, fri, max), tick = T)
 

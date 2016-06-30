@@ -11,14 +11,14 @@ power <- mutate(power, DateTimeSeconds = unclass(as.POSIXct(DateTimeObject)))
 min <- min(power$DateTimeSeconds)
 max <- max(power$DateTimeSeconds)
 fri <- min +  ((max - min) / 2)
-par(xaxt = "n", mfrow = c(1,1))
+par(xaxt = "n", mfrow = c(1,1), bg = "transparent", oma = c(0,0,0,0), mar = c(5.1, 4.1, 4.1, 2.1))
 
 plot(power$DateTimeSeconds, y = power$Sub_metering_1, type = "l", pch = 20, xlim = c(min, max), ylab = "Energy sub metering", xlab = "")
 lines(power$DateTimeSeconds, y = power$Sub_metering_2, col = "red")
 lines(power$DateTimeSeconds, y = power$Sub_metering_3, col = "blue")
 
-width = strwidth("Sub_metered_1") * 1.5
-legend("topright", border = "black", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, text.width = width)
+width = strwidth("Sub_metered_1") * 3
+legend("topright", border = "black", y.intersp = 2,  legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, text.width = width)
 par(xaxt = "l")
 axis(1, labels = c("Thu", "Fri", "Sat"), at = c(min, fri, max), tick = T)
 

@@ -8,8 +8,8 @@ power <- mutate(power, DateTime = paste(Date, Time, sep = "-"), type="o")
 power <- mutate(power, DateTimeObject = ymd_hms(DateTime), type="o")
 power <- mutate(power, DateTimeSeconds = unclass(as.POSIXct(DateTimeObject)))
 
-par(mfrow = c(1,1)) 
-hist(power$Global_active_power, bg = "transparent", col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
+par(mfrow = c(1,1), bg = "transparent", oma = c(0,0,0,0), mar = c(5.1, 4.1, 4.1, 2.1)) 
+hist(power$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
 
 screen <- dev.cur()
 png(width = 480, height = 480, filename = "plot1.png")
