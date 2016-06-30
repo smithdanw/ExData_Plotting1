@@ -20,7 +20,7 @@ lines(power$DateTimeSeconds, y = power$Sub_metering_3, col = "blue")
 width = strwidth("Sub_metered_1") * 1.5
 legend("topright", border = "black", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, text.width = width)
 par(xaxt = "l")
-axis(1, labels = c("Thur", "Fri", "Sat"), at = c(min, fri, max), tick = T)
+axis(1, labels = c("Thu", "Fri", "Sat"), at = c(min, fri, max), tick = T)
 
 screen <- dev.cur()
 png(width = 480, height = 480, filename = "plot3.png")

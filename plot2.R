@@ -14,7 +14,7 @@ fri <- min +  ((max - min) / 2)
 par(xaxt = "n", mfrow = c(1,1)) 
 plot(power$DateTimeSeconds, y = power$Global_active_power, type = "l", pch = 20, xlim = c(min, max), ylab = "Global Active Power (kilowatts)", xlab = "")
 par(xaxt = "l")
-axis(1, labels = c("Thur", "Fri", "Sat"), at = c(min, fri, max), tick = T)
+axis(1, labels = c("Thu", "Fri", "Sat"), at = c(min, fri, max), tick = T)
 
 screen <- dev.cur()
 png(width = 480, height = 480, filename = "plot2.png")
