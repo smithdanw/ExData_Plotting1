@@ -6,12 +6,9 @@ power <- mutate(power, Date = dmy(Date))
 power <- filter(power, Date == ymd("2007-02-01") | Date == ymd("2007-02-02"))
 power <- mutate(power, DateTimeSeconds = as.POSIXct(paste(Date, Time), format = "%Y-%m-%d %H:%M:%S"))
 
-min <- min(power$DateTimeSeconds)
-max <- max(power$DateTimeSeconds)
-fri <- min +  ((max - min) / 2)
 par(mfrow = c(1,1), bg = "transparent", oma = c(0,0,0,0), mar = c(5.1, 4.1, 4.1, 2.1))
 
-plot(power$DateTimeSeconds, y = power$Sub_metering_1, type = "l", pch = 20, xlim = c(min, max), ylab = "Energy sub metering", xlab = "")
+plot(power$DateTimeSeconds, y = power$Sub_metering_1, type = "l", pch = 20, ylab = "Energy sub metering", xlab = "")
 lines(power$DateTimeSeconds, y = power$Sub_metering_2, col = "red")
 lines(power$DateTimeSeconds, y = power$Sub_metering_3, col = "blue")
 
